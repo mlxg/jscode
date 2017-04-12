@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>stopPropagation</title>
+</head>
+<body>
+<div id='div' onclick='console.log("div");'>
+    <ul onclick='console.log("ul");'>
+        <li onclick='myfn()'>test</li>
+    </ul>
+</div>
+<a href="http://caibaojian.com/" id="testA">caibaojian.com</a>
+<script>
+    function myfn(e) {
+        console.log("li")
+        stopBubble(e)
+    }
+
+    var a = document.getElementById('testA')
+    a.onclick = (e) => {
+        stopDefault(e)
+    }
+
+
+    function stopBubble(e) {
+        window.event ? window.event.cancelBubble = true : e.stopPropagation();
+    }
+
+    function stopDefault(e) {
+        window.event ? window.event.returnValue = false : e.preventDefault();
+    }
+
+</script>
+</body>
+</html>
