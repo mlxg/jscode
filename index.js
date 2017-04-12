@@ -10,7 +10,7 @@ var a = new Promise(
             console.log(2)
         }, 0)
         console.log(3)
-        console.log(4)e
+        console.log(4)
         resolve(true)
     }
 )
